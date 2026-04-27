@@ -5906,6 +5906,7 @@ a, button, .btn, [role='button'], .project-card, .modal-link-btn, .popup-content
 /* Mobile Layout Fixes */
 @media only screen and (max-width: 991px) {
     .header-content { padding: 15px 20px !important; height: 52px; position: relative; }
+    .header { position: absolute !important; }
     .menu-toggle { display: block !important; visibility: visible !important; color: #fff !important; font-size: 26px; position: absolute; right: 20px; top: 12px; z-index: 1001; cursor: pointer; width: 30px; height: 30px; text-align: center; }
     .menu-toggle i { color: #fff !important; display: block; line-height: 30px; }
     

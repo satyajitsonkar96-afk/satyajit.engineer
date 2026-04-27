@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Satyajit Sonkar - Portfolio Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Satyajit Sonkar - Cloud & DevOps Engineer Portfolio Projects">
+  <meta name="author" content="Satyajit Sonkar">
+  <link rel="shortcut icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="./template/css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="./template/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="./template/css/owl.carousel.css" type="text/css">
+  <link rel="stylesheet" href="./template/css/magnific-popup.css" type="text/css">
+  <link rel="stylesheet" href="./template/css/main.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <script src="./template/js/modernizr.custom.js"></script>
+</head>
+
+<body class="page">
+
+  <div class="lm-animated-bg"></div>
+
+  <!-- Loading animation -->
+  <div class="preloader" style="display: none;">
+    <div class="preloader-animation">
+      <div class="preloader-spinner">
+      </div>
+    </div>
+  </div>
+  <!-- /Loading animation -->
+
+  <!-- Scroll To Top Button -->
+  <div class="lmpixels-scroll-to-top hidden-btn"><i class="lnr lnr-chevron-up"></i></div>
+  <!-- /Scroll To Top Button -->
+
+  <div class="page-scroll">
+    <div id="page_container" class="page-container bg-move-effect animated transition-fade"
+      data-animation="transition-fade">
+
+      <!-- Header -->
+      <header id="site_header" class="header">
+        <div class="header-content clearfix">
+
+          <!-- Text Logo -->
+          <div class="text-logo">
+            <a href="index.html">
+              <div class="logo-symbol">S</div>
+              <div class="logo-text">Satyajit <span>Sonkar</span></div>
+            </a>
+          </div>
+          <!-- /Text Logo -->
+
+          <!-- Navigation -->
+          <div class="site-nav mobile-menu-hide">
+            <ul class="leven-classic-menu site-main-menu">
+              <li class="menu-item">
+                <a href="index.html">About Me</a>
+              </li>
+
+              <li class="menu-item">
+                <a href="resume.html">Resume</a>
+              </li>
+
+              <li class="menu-item current-menu-item">
+                <a href="portfolio.html">Portfolio</a>
+              </li>
+
+              <li class="menu-item">
+                <a href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <a class="menu-toggle mobile-visible">
+            <i class="fa fa-bars"></i>
+          </a>
+        </div>
+      </header>
+      <!-- /Header -->
+
+      <div id="main" class="site-main">
+        <div id="main-content" class="single-page-content">
+          <div id="primary" class="content-area">
+
+            <div class="page-title">
+              <h1>Portfolio</h1>
+              <div class="page-subtitle">
+                <h4> My Works</h4>
+              </div>
+            </div>
+
+            <div id="content" class="page-content site-content single-post" role="main">
+
+              <div class="row">
+                <div class=" col-xs-12 col-sm-12 ">
+                  <!-- Portfolio Content -->
+                  <div id="portfolio_content_q" class="portfolio-content">
+
+                    <!-- Portfolio Custom Styling -->
+                    <style>
+                      .project-card {
+                        display: flex;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 6px;
+                        margin-bottom: 30px;
+                        background: #fff;
+                        overflow: hidden;
+                        height: 120px;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+                        transition: transform 0.2s ease, box-shadow 0.2s ease;
+                      }
+
+                      .project-card:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+                      }
+
+                      .project-card-left {
+                        background: #f8f9fa;
+                        width: 25%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-right: 1px solid #e0e0e0;
+                      }
+
+                      .project-card-left i {
+                        font-size: 36px;
+                        color: #b5b6b7;
+                        transition: color 0.2s ease;
+                      }
+
+                      .project-card:hover .project-card-left i {
+                        color: #007ced;
+                      }
+
+                      .project-card-right {
+                        padding: 20px;
+                        width: 75%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                      }
+
+                      .project-card-title {
+                        font-size: 15px;
+                        font-weight: 600;
+                        margin: 0 0 6px 0;
+                        color: #333;
+                        line-height: 1.2;
+                      }
+
+                      .project-card-subtitle {
+                        font-size: 12px;
+                        color: #888;
+                        margin: 0;
+                        line-height: 1.4;
+                      }
+
+                      /* Modal Styles */
+                      .modal-link-btn {
+                        display: inline-block;
+                        padding: 10px 15px;
+                        border-radius: 8px;
+                        border: 1px solid #eee;
+                        text-decoration: none !important;
+                        color: #333;
+                        transition: all 0.2s ease;
+                      }
+
+                      .modal-link-btn:hover {
+                        background: #f8f9fa;
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+                        transform: translateY(-2px);
+                      }
+
+                      .modal-link-btn i {
+                        font-size: 24px;
+                        display: block;
+                        margin-bottom: 5px;
+                        color: #007ced;
+                      }
+
+                      .modal-link-btn span {
+                        font-size: 13px;
+                        font-weight: 500;
+                      }
+
+                      /* Popup Animations & Sizing */
+                      .custom-popup {
+                        opacity: 0;
+                        visibility: hidden;
+                        transition: opacity 0.3s ease, visibility 0.3s ease;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 99999;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        pointer-events: none;
+                        /* Let clicks pass through to the background div */
+                      }
+
+                      .custom-popup.show {
+                        opacity: 1;
+                        visibility: visible;
+                        pointer-events: auto;
+                      }
+
+                      .popup-content {
+                        background: white;
+                        padding: 25px 20px;
+                        border-radius: 12px;
+                        text-align: center;
+                        width: 240px;
+                        position: relative;
+                        /* This shadow creates the dimmed background and gets clipped by the page container's rounded corners */
+                        box-shadow: 0 0 0 5000px rgba(0, 0, 0, 0.5), 0 10px 30px rgba(0, 0, 0, 0.2);
+                        transform: scale(0.5) translateY(50px);
+                        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                      }
+
+                      .custom-popup.show .popup-content {
+                        transform: scale(1) translateY(0);
+                      }
+
+                      /* Ensure the overlay is clickable for closing */
+                      .custom-popup::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                      }
+                    </style>
+
+                    <!-- Horizontal Cards Grid -->
+                    <div class="row">
+
+                      <!-- Project 1 -->
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="project-card" onclick="document.getElementById('popupSMS').classList.add('show');"
+                          style="cursor: pointer;">
+                          <div class="project-card-left">
+                            <i class="fa fa-cloud"></i>
+                          </div>
+                          <div class="project-card-right">
+                            <h4 class="project-card-title">Student Management System — Flask on AWS EC2</h4>
+                            <p class="project-card-subtitle">Production REST backend on hardened AWS with IAM security.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project 2 -->
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="project-card" onclick="document.getElementById('popupCICD').classList.add('show');"
+                          style="cursor: pointer;">
+                          <div class="project-card-left">
+                            <i class="fa fa-cogs"></i>
+                          </div>
+                          <div class="project-card-right">
+                            <h4 class="project-card-title">Cloud-Native CI/CD Pipeline on AWS</h4>
+                            <p class="project-card-subtitle">Automated delivery — commit to production in minutes.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project 3 -->
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="project-card" onclick="document.getElementById('popupK8s').classList.add('show');"
+                          style="cursor: pointer;">
+                          <div class="project-card-left">
+                            <i class="fa fa-server"></i>
+                          </div>
+                          <div class="project-card-right">
+                            <h4 class="project-card-title">Kubernetes Microservice — FastAPI + K8s on EC2</h4>
+                            <p class="project-card-subtitle">Full container orchestration lifecycle — local to cloud.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project 4 -->
+                      <div class="col-xs-12 col-sm-6">
+                        <div class="project-card"
+                          onclick="document.getElementById('popupAirAware').classList.add('show');"
+                          style="cursor: pointer;">
+                          <div class="project-card-left">
+                            <i class="fa fa-leaf"></i>
+                          </div>
+                          <div class="project-card-right">
+                            <h4 class="project-card-title">AirAware — ML Air Quality Prediction System</h4>
+                            <p class="project-card-subtitle">End-to-end ML pipeline with interactive Streamlit
+                              dashboard.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <!-- SMS Popup -->
+                    <div id="popupSMS" class="custom-popup"
+                      onclick="if(event.target == this) this.classList.remove('show');">
+                      <div class="popup-content">
+                        <span onclick="document.getElementById('popupSMS').classList.remove('show');"
+                          style="position: absolute; top: 8px; right: 15px; font-size: 26px; cursor: pointer; color: #aaa; font-weight: bold; line-height: 1; transition: color 0.2s;"
+                          onmouseover="this.style.color='#333'" onmouseout="this.style.color='#aaa'">&times;</span>
+                        <h4 style="margin-top: 5px; margin-bottom: 20px; font-size: 16px; font-weight: 600;">View
+                          Project</h4>
+                        <a href="https://github.com/satyajitsonkar96-afk/Students-Management-System.git" target="_blank"
+                          class="modal-link-btn" style="width: 100%; box-sizing: border-box; margin: 0;">
+                          <i class="fab fa-github" style="color: #333;"></i>
+                          <span>GitHub Repo</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- CI/CD Popup -->
+                    <div id="popupCICD" class="custom-popup"
+                      onclick="if(event.target == this) this.classList.remove('show');">
+                      <div class="popup-content">
+                        <span onclick="document.getElementById('popupCICD').classList.remove('show');"
+                          style="position: absolute; top: 8px; right: 15px; font-size: 26px; cursor: pointer; color: #aaa; font-weight: bold; line-height: 1; transition: color 0.2s;"
+                          onmouseover="this.style.color='#333'" onmouseout="this.style.color='#aaa'">&times;</span>
+                        <h4 style="margin-top: 5px; margin-bottom: 20px; font-size: 16px; font-weight: 600;">View
+                          Project</h4>
+                        <a href="https://github.com/satyajitsonkar96-afk/Cloud-Native-CI-CD-Pipeline-on-AWS.git"
+                          target="_blank" class="modal-link-btn"
+                          style="width: 100%; box-sizing: border-box; margin: 0;">
+                          <i class="fab fa-github" style="color: #333;"></i>
+                          <span>GitHub Repo</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- K8s Popup -->
+                    <div id="popupK8s" class="custom-popup"
+                      onclick="if(event.target == this) this.classList.remove('show');">
+                      <div class="popup-content">
+                        <span onclick="document.getElementById('popupK8s').classList.remove('show');"
+                          style="position: absolute; top: 8px; right: 15px; font-size: 26px; cursor: pointer; color: #aaa; font-weight: bold; line-height: 1; transition: color 0.2s;"
+                          onmouseover="this.style.color='#333'" onmouseout="this.style.color='#aaa'">&times;</span>
+                        <h4 style="margin-top: 5px; margin-bottom: 20px; font-size: 16px; font-weight: 600;">View
+                          Project</h4>
+                        <a href="https://github.com/satyajitsonkar96-afk/k8s-microservice.git" target="_blank"
+                          class="modal-link-btn" style="width: 100%; box-sizing: border-box; margin: 0;">
+                          <i class="fab fa-github" style="color: #333;"></i>
+                          <span>GitHub Repo</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- AirAware Popup -->
+                    <div id="popupAirAware" class="custom-popup"
+                      onclick="if(event.target == this) this.classList.remove('show');">
+                      <div class="popup-content">
+                        <span onclick="document.getElementById('popupAirAware').classList.remove('show');"
+                          style="position: absolute; top: 8px; right: 15px; font-size: 26px; cursor: pointer; color: #aaa; font-weight: bold; line-height: 1; transition: color 0.2s;"
+                          onmouseover="this.style.color='#333'" onmouseout="this.style.color='#aaa'">&times;</span>
+                        <h4 style="margin-top: 5px; margin-bottom: 20px; font-size: 16px; font-weight: 600;">View
+                          Project</h4>
+
+                        <a href="https://github.com/satyajitsonkar96-afk/AirAware-System.git" target="_blank"
+                          class="modal-link-btn" style="width: 100%; box-sizing: border-box; margin: 0 0 10px 0;">
+                          <i class="fab fa-github" style="color: #333;"></i>
+                          <span>GitHub Repo</span>
+                        </a>
+
+                        <a href="https://airaware-system-aqcpndcqiq3bcxl5mtfzum.streamlit.app/" target="_blank"
+                          class="modal-link-btn" style="width: 100%; box-sizing: border-box; margin: 0;">
+                          <i class="fas fa-external-link-alt"></i>
+                          <span>Direct Link</span>
+                        </a>
+                      </div>
+                    </div>
+                    <!-- /Portfolio Content -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer clearfix">
+        <div class="footer-social">
+          <ul class="footer-social-links">
+            <li>
+              <a href="https://www.linkedin.com/in/satyajitsonkar" target="_blank">LinkedIn</a>
+            </li>
+
+            <li>
+              <a href="https://github.com/satyajitsonkar96-afk" target="_blank">GitHub</a>
+            </li>
+
+            <li>
+              <a href="portfolio-2-columns.html#" target="_blank">Instagram</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-copyrights">
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script src="./template/js/jquery-2.1.3.min.js"></script>
+  <script src="./template/js/imagesloaded.pkgd.min.js"></script>
+  <script src="./template/js/api.js"></script>
+  <script src="./template/js/bootstrap.min.js"></script>
+  <script src="./template/js/jquery.shuffle.min.js"></script>
+  <script src="./template/js/masonry.pkgd.min.js"></script>
+  <script src="./template/js/owl.carousel.min.js"></script>
+  <script src="./template/js/jquery.magnific-popup.min.js"></script>
+
+  <script src="./template/js/jquery.googlemap.js"></script>
+  <script src="./template/js/validator.js"></script>
+  <script src="./template/js/main.js"></script>
+
+
+  <div id="page-ajax-loaded" class="page-portfolio-loaded animated fadeInLeft" style="display: none">
+    <div class="preloader-portfolio">
+      <div class="preloader-animation">
+        <div class="preloader-spinner"></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

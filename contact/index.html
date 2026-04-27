@@ -273,6 +273,40 @@
                         btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
                         btn.disabled = true;
 
+                        // TESTIMONIAL LOGIC: Save locally if subject is "Feedback"
+                        // We do this before the fetch so it works even if the server is down
+                        let isSavedLocally = false;
+                        if (subject === 'Feedback') {
+                          try {
+                            const genderWrapper = document.getElementById('gender_field_wrapper');
+                            const gender = (genderWrapper.style.display !== 'none')
+                              ? document.getElementById('form_gender').value
+                              : '';
+
+                            const feedbacks = JSON.parse(localStorage.getItem('local_feedbacks') || '[]');
+                            feedbacks.push({
+                              name, title, message, gender,
+                              date: new Date().toLocaleDateString()
+                            });
+                            localStorage.setItem('local_feedbacks', JSON.stringify(feedbacks));
+                            isSavedLocally = true;
+                          } catch (err) {
+                            console.error('Local storage error:', err);
+                          }
+                        }
+
+                        const showSuccess = () => {
+                          const msgBox = document.getElementById('form_success_msg');
+                          msgBox.style.display = 'block';
+                          msgBox.innerHTML = '✅ <strong>Message sent successfully!</strong> Thank you, ' + name + '! I\'ll get back to you soon.';
+                          
+                          document.getElementById('contact_form').reset();
+                          document.getElementById('gender_field_wrapper').style.display = 'none';
+                          document.getElementById('other_subject_wrapper').style.display = 'none';
+                          
+                          setTimeout(function () { msgBox.style.display = 'none'; }, 5000);
+                        };
+
                         try {
                           const response = await fetch('http://localhost:5000/api/contact', {
                             method: 'POST',
@@ -285,39 +319,24 @@
                           const result = await response.json();
 
                           if (result.success) {
-                            // If Feedback subject, save to localStorage for testimonials
-                            if (subject === 'Feedback') {
-                              const genderWrapper = document.getElementById('gender_field_wrapper');
-                              const gender = (genderWrapper.style.display !== 'none')
-                                ? document.getElementById('form_gender').value
-                                : '';
-
-                              const feedbacks = JSON.parse(localStorage.getItem('local_feedbacks') || '[]');
-                              feedbacks.push({
-                                name, title, message, gender,
-                                date: new Date().toLocaleDateString()
-                              });
-                              localStorage.setItem('local_feedbacks', JSON.stringify(feedbacks));
-                            }
-
-                            // Show success message inline
-                            const msgBox = document.getElementById('form_success_msg');
-                            msgBox.style.display = 'block';
-                            msgBox.innerHTML = '✅ <strong>Message sent successfully!</strong> Thank you, ' + name + '! I\'ll get back to you soon.';
-
-                            // Reset the form
-                            document.getElementById('contact_form').reset();
-                            document.getElementById('gender_field_wrapper').style.display = 'none';
-                            document.getElementById('other_subject_wrapper').style.display = 'none';
-
-                            // Hide success message after 5 seconds
-                            setTimeout(function () { msgBox.style.display = 'none'; }, 5000);
+                            showSuccess();
                           } else {
-                            alert('Failed to send message: ' + result.message);
+                            // If it failed but we saved locally, we can still show a partial success or specific error
+                            if (isSavedLocally) {
+                              alert('Testimonial saved locally, but email failed to send: ' + result.message);
+                              showSuccess(); // Still reset form for better UX
+                            } else {
+                              alert('Failed to send message: ' + result.message);
+                            }
                           }
                         } catch (error) {
-                          console.error('Error:', error);
-                          alert('An error occurred. Please try again later.');
+                          console.error('Fetch Error:', error);
+                          if (isSavedLocally) {
+                            // Mock success for local testing when backend is down
+                            showSuccess();
+                          } else {
+                            alert('An error occurred. Please try again later.');
+                          }
                         } finally {
                           btn.innerHTML = originalText;
                           btn.disabled = false;

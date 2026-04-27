@@ -300,11 +300,45 @@
                       if (typeof jQuery === 'undefined' || typeof jQuery.fn.owlCarousel === 'undefined') {
                         return setTimeout(waitForOwl, 100);
                       }
+                      
                       var $tc = jQuery('#testimonials_1');
+
+                      // LOAD LOCAL FEEDBACKS
+                      try {
+                        var localFeedbacks = JSON.parse(localStorage.getItem('local_feedbacks') || '[]');
+                        localFeedbacks.forEach(function(fb) {
+                          var avatar = fb.gender === 'female' 
+                            ? 'https://i.pravatar.cc/100?u=' + fb.name + '&gender=female'
+                            : 'https://i.pravatar.cc/100?u=' + fb.name;
+                          
+                          var fbHtml = 
+                            '<div class="testimonial-item">' +
+                              '<div class="testimonial-content">' +
+                                '<div class="testimonial-picture">' +
+                                  '<img src="' + avatar + '" alt="' + fb.name + '">' +
+                                '</div>' +
+                                '<div class="testimonial-text">' +
+                                  '<p>"' + fb.message + '"</p>' +
+                                '</div>' +
+                                '<div class="testimonial-author-info">' +
+                                  '<h5 class="testimonial-author">' + fb.name + '</h5>' +
+                                  '<p class="testimonial-firm">' + fb.title + '</p>' +
+                                  '<p style="font-size: 10px; margin-top: 5px; color: #aaa;">' + fb.date + '</p>' +
+                                '</div>' +
+                                '<div class="testimonial-icon"><i class="fa fa-quote-left"></i></div>' +
+                                '<div class="testimonial-icon-big"><i class="fa fa-quote-right"></i></div>' +
+                              '</div>' +
+                            '</div>';
+                          $tc.append(fbHtml);
+                        });
+                      } catch (e) {
+                        console.error('Error loading local feedbacks:', e);
+                      }
+
                       $tc.owlCarousel({
                         nav: false,
                         dots: true,
-                        loop: true,
+                        loop: $tc.children().length > 1, // Loop only if more than 1 item
                         margin: 25,
                         items: 2,
                         responsive: {

@@ -1607,11 +1607,7 @@ h3.comment-reply-title:before {
 }
 
 .lmpixels-scroll-to-top {
-  position: fixed;
-  bottom: 10px;
-  right: 15px;
-  z-index: 100;
-  display: inline-block;
+  display: none !important;
   padding: 0;
   background-color: #333;
   height: 50px;
@@ -5926,11 +5922,13 @@ a, button, .btn, [role='button'], .project-card, .modal-link-btn, .popup-content
     .text-rotation .item h4 { text-align: center !important; width: 100%; font-size: 14px; }
     .home-buttons { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; margin-top: 20px; }
     
-    .testimonial-item { padding: 10px !important; }
-    .testimonial-content { padding: 60px 20px 20px 20px !important; text-align: center; background-color: #282828 !important; border-radius: 12px; }
-    .testimonial-picture { left: 50% !important; transform: translateX(-50%); top: -40px !important; width: 80px; height: 80px; }
-    .testimonial-picture img { border: 3px solid #007ced; }
-    .testimonial-icon { left: 50% !important; transform: translateX(-50%); bottom: auto; top: 15px; font-size: 20px; color: #007ced !important; }
+    .testimonial-item { padding: 40px 10px 10px !important; width: 100%; margin: 0 auto; }
+    .testimonial-content { padding: 50px 20px 20px 20px !important; text-align: center; background-color: #282828 !important; border-radius: 12px; position: relative; border: 1px solid #333; }
+    .testimonial-picture { position: absolute !important; left: 50% !important; transform: translateX(-50%) !important; top: -40px !important; width: 80px !important; height: 80px !important; margin: 0 !important; z-index: 2; }
+    .testimonial-picture img { border: 3px solid #007ced !important; border-radius: 50%; }
+    .testimonial-icon { position: absolute !important; left: 50% !important; transform: translateX(-50%) !important; top: 15px !important; font-size: 24px !important; color: #007ced !important; opacity: 0.3; z-index: 1; }
+    .testimonial-author { margin-top: 15px !important; font-weight: 600; color: #fff; }
+    .testimonial-firm { font-size: 12px; color: #aaa; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -5938,4 +5936,5 @@ a, button, .btn, [role='button'], .project-card, .modal-link-btn, .popup-content
     .home-text h1 { font-size: 28px !important; }
     .lm-info-block { margin-bottom: 15px; padding: 20px 10px; }
     .lm-info-block-value { font-size: 26px !important; opacity: 1 !important; color: #fff !important; }
+    .testimonial-content { padding: 45px 15px 15px 15px !important; }
 }
